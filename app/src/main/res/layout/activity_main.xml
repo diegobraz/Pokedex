@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:listitem="@layout/pokemon_detail"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
 
 </androidx.recyclerview.widget.RecyclerView>
