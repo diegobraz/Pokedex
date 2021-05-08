@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokedex.R
 import com.example.pokedex.adapter.PokemonListAdapter
+import com.example.pokedex.api.PokeRespositore
 import com.example.pokedex.api.domain.Pokemon
 import com.example.pokedex.api.domain.PokemonType
+import com.example.pokedex.api.model.PokemonsApi
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             charmander, charmander, charmander
         )
 
+        val pokemonsApi = PokeRespositore.listPokemons()
         val recyclerView = findViewById<RecyclerView>(R.id.poke_list)
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
