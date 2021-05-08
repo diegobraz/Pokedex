@@ -2,6 +2,7 @@ package com.example.pokedex.api
 
 import android.util.Log
 import android.widget.Toast
+import com.example.pokedex.api.model.PokemonApiResult
 import com.example.pokedex.api.model.PokemonsApi
 import com.google.gson.Gson
 import retrofit2.Call
@@ -23,29 +24,18 @@ object PokeRespositore {
         service = retrofit.create(PokemonService::class.java)
     }
 
-    fun listPokemons(limit: Int = 200 ) {
+    fun listPokemons(limit: Int = 200 ): PokemonsApi? {
        val call =  service.listPokemons(limit)
 
-        call.enqueue(object: Callback<PokemonsApi>{
-            override fun onResponse(call: Call<PokemonsApi>, response: Response<PokemonsApi>) {
-                Log.d("POKEMON_API","pokemon api loaded.")
-                if (response.isSuccessful){
-                    val body  = response.body()
+       return call.execute().body()
 
-                    body?.results?.let {
-                       it.forEach {
-                           Log.d("POKEMON_API",it.name)
-                       }
-                    }
-                }
 
-            }
+    }
 
-            override fun onFailure(call: Call<PokemonsApi>, t: Throwable) {
-                Log.e("POKEMON_API","Erro during pokemon api load.",t)
-            }
+    fun getPokemon(number: Int): PokemonApiResult? {
+        val call =  service.getPokemons(number)
+            return call.execute().body()
 
-        })
 
     }
 

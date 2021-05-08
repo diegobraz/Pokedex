@@ -16,20 +16,55 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val charmander = Pokemon(
-            "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/004.png", 1, "CHARMANDER",
-            listOf(
-                PokemonType("fire")
-            )
-        )
-        val pokemons = listOf(
-            charmander, charmander, charmander
-        )
 
-        val pokemonsApi = PokeRespositore.listPokemons()
-        val recyclerView = findViewById<RecyclerView>(R.id.poke_list)
-        val layoutManager = LinearLayoutManager(this)
-        recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = PokemonListAdapter(pokemons)
+
+        Thread(Runnable {
+            loadPokemons()
+
+        }).start()
+
+    }
+
+    private fun loadPokemons() {
+
+        val pokemonsApiResult = PokeRespositore.listPokemons()
+
+        pokemonsApiResult?.results?.let {
+
+
+            val pokemon: List<Pokemon?> = it.map { pokemonResult ->
+                val  number = pokemonResult.url.replace("https://pokeapi.co/api/v2/pokemon/","")
+                    .replace("/","").trim().toInt()
+               val pokemoResult = PokeRespositore.getPokemon(number)
+
+
+                pokemoResult?.let {
+
+                    Pokemon(
+                        pokemoResult.id,
+                        pokemoResult.name,
+                        pokemoResult.types.map {
+                            it.type
+                        }
+
+
+                    )
+                }
+
+
+            }
+
+            val recyclerView = findViewById<RecyclerView>(R.id.poke_list)
+            recyclerView.post{
+                val layoutManager = LinearLayoutManager(this)
+                recyclerView.layoutManager = layoutManager
+                recyclerView.adapter = PokemonListAdapter(pokemon)
+
+            }
+
+        }
+
+
+
     }
 }
