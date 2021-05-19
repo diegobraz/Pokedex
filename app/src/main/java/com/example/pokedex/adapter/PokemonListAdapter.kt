@@ -10,8 +10,8 @@ import com.example.pokedex.api.domain.Pokemon
 import kotlinx.android.synthetic.main.pokemon_detail.view.*
 
 class PokemonListAdapter(
-      private  val items : List<Pokemon?>
-        ) : RecyclerView.Adapter<PokemonListAdapter.Viewholder>(){
+    private  val items : List<Pokemon?>
+    ) : RecyclerView.Adapter<PokemonListAdapter.Viewholder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
