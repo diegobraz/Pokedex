@@ -1,5 +1,6 @@
 package com.example.pokedex.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +36,62 @@ class PokemonListAdapter(
             itemView.cod_pokemon.text = "Nº ${pokemon.number}"
             itemView.name_pokemon.text = pokemon.name
             itemView.type_name.text = pokemon.type?.first()?.name
+            when(pokemon.type?.first()?.name){
+                "grass"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#228B22"))
+                }
+                "poison"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#9932CC"))
+                }
+                "fire"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#fd7d24"))
+                }
+                "water"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#1E90FF"))
+                }
+                "bug"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#DAA520"))
+                }
+                "normal"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#EEE8AA"))
+                }
+                "electric"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#FFFF00"))
+                }
+                "dark"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#2F4F4F"))
+                }
+                "ground"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#8B4513"))
+                }
+                "fairy"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#FFDEAD"))
+                }
+                "fighting"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#DEB887"))
+                }
+                "psychic"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#BC8F8F"))
+                }
+                "rock"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#8B4513"))
+                }
+                "ghost"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#9932CC"))
+                }
+                "dragon"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#C71585"))
+                }
+                "ice"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#836FFF"))
+                }
+
+                else -> {
+                    itemView.type_name.setBackgroundColor(Color.RED)
+                }
+
+
+            }
 
             if (pokemon.type?.size ?: 0 > 1){
                 itemView.type_second_name.text = pokemon.type?.get(1)?.name ?: ""
