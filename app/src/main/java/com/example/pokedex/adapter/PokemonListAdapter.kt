@@ -85,6 +85,9 @@ class PokemonListAdapter(
                 "ice"->{
                     itemView.type_name.setBackgroundColor(Color.parseColor("#836FFF"))
                 }
+                "flyng"->{
+                    itemView.type_name.setBackgroundColor(Color.parseColor("#28BDC8"))
+                }
 
                 else -> {
                     itemView.type_name.setBackgroundColor(Color.RED)
@@ -96,6 +99,63 @@ class PokemonListAdapter(
             if (pokemon.type?.size ?: 0 > 1){
                 itemView.type_second_name.text = pokemon.type?.get(1)?.name ?: ""
                 itemView.type_second_name.visibility = View.VISIBLE
+                when(pokemon.type?.get(1)?.name){
+                    "grass"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#228B22"))
+                    }
+                    "poison"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#9932CC"))
+                    }
+                    "fire"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#fd7d24"))
+                    }
+                    "water"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#1E90FF"))
+                    }
+                    "bug"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#DAA520"))
+                    }
+                    "normal"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#EEE8AA"))
+                    }
+                    "electric"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#FFFF00"))
+                    }
+                    "dark"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#2F4F4F"))
+                    }
+                    "ground"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#8B4513"))
+                    }
+                    "fairy"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#FFDEAD"))
+                    }
+                    "fighting"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#DEB887"))
+                    }
+                    "psychic"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#BC8F8F"))
+                    }
+                    "rock"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#8B4513"))
+                    }
+                    "ghost"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#9932CC"))
+                    }
+                    "dragon"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#C71585"))
+                    }
+                    "ice"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#836FFF"))
+                    }
+                    "flyng"->{
+                        itemView.type_second_name.setBackgroundColor(Color.parseColor("#28BDC8"))
+                    }
+
+                    else -> {
+                        itemView.type_second_name.setBackgroundColor(Color.RED)
+                    }
+                }
             }
             else{
                 itemView.type_second_name.visibility = View.GONE
