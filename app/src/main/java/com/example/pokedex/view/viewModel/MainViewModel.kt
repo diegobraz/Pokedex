@@ -37,7 +37,6 @@ class MainViewModel: ViewModel() {
 
         pokemonsApiResult?.results?.let {
 
-
             pokemons.postValue( it.map { pokemonResult ->
                 val  number = pokemonResult.url.replace("https://pokeapi.co/api/v2/pokemon/","")
                     .replace("/","").trim().toInt()

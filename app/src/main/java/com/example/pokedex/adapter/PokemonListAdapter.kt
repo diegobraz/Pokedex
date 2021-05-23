@@ -148,7 +148,7 @@ class PokemonListAdapter(
                     "ice"->{
                         itemView.type_second_name.setBackgroundColor(Color.parseColor("#836FFF"))
                     }
-                    "flyng"->{
+                    "flying"->{
                         itemView.type_second_name.setBackgroundColor(Color.parseColor("#28BDC8"))
                     }
 

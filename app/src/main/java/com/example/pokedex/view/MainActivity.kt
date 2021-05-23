@@ -2,6 +2,8 @@ package com.example.pokedex.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +13,7 @@ import com.example.pokedex.adapter.PokemonListAdapter
 import com.example.pokedex.api.domain.Pokemon
 import com.example.pokedex.view.viewModel.MainViewModel
 import com.example.pokedex.view.viewModel.ViewModelFactory
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,7 +32,15 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.init()
         viewModel.pokemons.observe(this, Observer {
+           when{
+               it.isEmpty() -> {
+                   main_progress_bar.visibility = View.VISIBLE
+               }
 
+               it.isNotEmpty() ->{
+                   main_progress_bar.visibility = View.GONE
+               }
+           }
             loadReclycleView(it)
 
             }
