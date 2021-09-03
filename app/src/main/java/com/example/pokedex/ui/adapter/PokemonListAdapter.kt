@@ -1,4 +1,4 @@
-package com.example.pokedex.adapter
+package com.example.pokedex.ui.adapter
 
 import android.graphics.Color
 import android.view.LayoutInflater

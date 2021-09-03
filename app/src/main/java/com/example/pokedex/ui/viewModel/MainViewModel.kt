@@ -1,13 +1,7 @@
-package com.example.pokedex.view.viewModel
+package com.example.pokedex.ui.viewModel
 
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.pokedex.R
-import com.example.pokedex.adapter.PokemonListAdapter
 import com.example.pokedex.api.PokeRespositore
 import com.example.pokedex.api.domain.Pokemon
 
