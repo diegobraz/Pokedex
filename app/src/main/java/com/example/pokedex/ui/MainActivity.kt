@@ -21,36 +21,31 @@ class MainActivity : AppCompatActivity() {
             .get(MainViewModel::class.java)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         viewModel.init()
         viewModel.pokemons.observe(this, Observer {
-           when{
-               it.isEmpty() -> {
-                   main_progress_bar.visibility = View.VISIBLE
-               }
+            when {
+                it.isEmpty() -> {
+                    main_progress_bar.visibility = View.VISIBLE
+                }
 
-               it.isNotEmpty() ->{
-                   main_progress_bar.visibility = View.GONE
-               }
-           }
-            loadReclycleView(it)
-
+                it.isNotEmpty() -> {
+                    main_progress_bar.visibility = View.GONE
+                }
             }
-
+            loadReclycleView(it)
+        }
         )
     }
 
-    private fun loadReclycleView(pokemons : List<Pokemon?>) {
+    private fun loadReclycleView(pokemons: List<Pokemon?>) {
         val recyclerView = findViewById<RecyclerView>(R.id.poke_list)
         recyclerView.post {
             recyclerView.layoutManager = LinearLayoutManager(this)
             recyclerView.adapter = PokemonListAdapter(pokemons)
-
         }
     }
-
 }

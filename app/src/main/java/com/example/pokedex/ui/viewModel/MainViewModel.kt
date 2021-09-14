@@ -5,13 +5,11 @@ import androidx.lifecycle.ViewModel
 import com.example.pokedex.api.PokeRespositore
 import com.example.pokedex.api.domain.Pokemon
 
-class MainViewModel: ViewModel() {
-
+class MainViewModel : ViewModel() {
 
     var pokemons = MutableLiveData<List<Pokemon?>>()
 
-
-    fun init(){
+    fun init() {
 
         Thread(Runnable {
 
@@ -19,11 +17,7 @@ class MainViewModel: ViewModel() {
 
         }).start()
 
-
     }
-
-
-
 
     private fun loadPokemons() {
 
@@ -31,11 +25,10 @@ class MainViewModel: ViewModel() {
 
         pokemonsApiResult?.results?.let {
 
-            pokemons.postValue( it.map { pokemonResult ->
-                val  number = pokemonResult.url.replace("https://pokeapi.co/api/v2/pokemon/","")
-                    .replace("/","").trim().toInt()
+            pokemons.postValue(it.map { pokemonResult ->
+                val number = pokemonResult.url.replace("https://pokeapi.co/api/v2/pokemon/", "")
+                    .replace("/", "").trim().toInt()
                 val pokemoResult = PokeRespositore.getPokemon(number)
-
 
                 pokemoResult?.let {
 
@@ -45,19 +38,10 @@ class MainViewModel: ViewModel() {
                         pokemoResult.types.map {
                             it.type
                         }
-
                     )
                 }
-
-
             }
             )
-
-
-
         }
-
-
-
     }
 }

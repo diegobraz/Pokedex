@@ -1,5 +1,5 @@
 package com.example.pokedex.api.domain
 
 data class PokemonType(
-        val name : String? = null
+    val name: String? = null
 )

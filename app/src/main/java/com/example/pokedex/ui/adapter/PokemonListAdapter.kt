@@ -14,7 +14,6 @@ class PokemonListAdapter(
     private  val items : List<Pokemon?>
     ) : RecyclerView.Adapter<PokemonListAdapter.Viewholder>(){
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.pokemon_detail,parent,false)
@@ -92,8 +91,6 @@ class PokemonListAdapter(
                 else -> {
                     itemView.type_name.setBackgroundColor(Color.RED)
                 }
-
-
             }
 
             if (pokemon.type?.size ?: 0 > 1){
@@ -162,10 +159,7 @@ class PokemonListAdapter(
             }
 
             Glide.with(itemView.context).load(pokemon.url).into(itemView.image_pokemon)
-
         }
-
-
     }
 }
 
