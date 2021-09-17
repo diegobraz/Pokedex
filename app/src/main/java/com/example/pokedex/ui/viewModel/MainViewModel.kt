@@ -3,9 +3,12 @@ package com.example.pokedex.ui.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pokedex.api.PokeRespositore
-import com.example.pokedex.api.domain.Pokemon
+import com.example.pokedex.domain.Pokemon
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor() : ViewModel() {
 
     var pokemons = MutableLiveData<List<Pokemon?>>()
 

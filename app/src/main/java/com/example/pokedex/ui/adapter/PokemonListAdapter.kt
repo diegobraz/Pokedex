@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokedex.R
-import com.example.pokedex.api.domain.Pokemon
+import com.example.pokedex.domain.Pokemon
 import kotlinx.android.synthetic.main.pokemon_detail.view.*
 
 class PokemonListAdapter(
