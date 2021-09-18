@@ -23,28 +23,28 @@ class MainViewModel @Inject constructor() : ViewModel() {
     }
 
     private fun loadPokemons() {
-
-        val pokemonsApiResult = PokeRespositore.listPokemons()
-
-        pokemonsApiResult?.results?.let {
-
-            pokemons.postValue(it.map { pokemonResult ->
-                val number = pokemonResult.url.replace("https://pokeapi.co/api/v2/pokemon/", "")
-                    .replace("/", "").trim().toInt()
-                val pokemoResult = PokeRespositore.getPokemon(number)
-
-                pokemoResult?.let {
-
-                    Pokemon(
-                        pokemoResult.id,
-                        pokemoResult.name,
-                        pokemoResult.types.map {
-                            it.type
-                        }
-                    )
-                }
-            }
-            )
-        }
+//
+//        val pokemonsApiResult = PokeRespositore.listPokemons()
+//
+//        pokemonsApiResult?.results?.let {
+//
+//            pokemons.postValue(it.map { pokemonResult ->
+//                val number = pokemonResult.url.replace("https://pokeapi.co/api/v2/pokemon/", "")
+//                    .replace("/", "").trim().toInt()
+//                val pokemoResult = PokeRespositore.getPokemon(number)
+//
+//                pokemoResult?.let {
+//
+//                    Pokemon(
+//                        pokemoResult.id,
+//                        pokemoResult.name,
+//                        pokemoResult.types.map {
+//                            it.type
+//                        }
+//                    )
+//                }
+//            }
+//            )
+//        }
     }
 }
