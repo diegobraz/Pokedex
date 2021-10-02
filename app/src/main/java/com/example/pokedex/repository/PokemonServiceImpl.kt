@@ -5,7 +5,6 @@ import com.example.pokedex.data.PokemonDataSouce
 import com.example.pokedex.model.PokemonApi
 import com.example.pokedex.model.PokemonApiResult
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
@@ -14,18 +13,21 @@ class PokemonServiceImpl @Inject constructor(
 ):PokemonDataSouce
 {
     override suspend fun listPokemons(dispatcher: CoroutineDispatcher, limit : Int): PokemonApi? {
-        val result = withContext(dispatcher) {
-            val call = pokemonService.listPokemons(limit)
-            return@withContext call.execute().body()
+        val call = pokemonService.listPokemons(limit)
+
+        val response = withContext(dispatcher){
+            call.execute().body()
         }
-        return  result
+
+        return  response
     }
 
     override suspend fun getPokemons(dispatcher: CoroutineDispatcher, id: Int): PokemonApiResult? {
-         val result =  withContext(dispatcher){
-            val call = pokemonService.getPokemons(id)
-             return@withContext call.execute().body()
+
+        val call = pokemonService.getPokemons(id)
+        val response = withContext(dispatcher){
+            call.execute().body()
         }
-        return result
+        return response
     }
 }
