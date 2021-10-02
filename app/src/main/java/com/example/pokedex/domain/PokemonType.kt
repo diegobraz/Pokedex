@@ -1,4 +1,4 @@
-package com.example.pokedex.api.domain
+package com.example.pokedex.domain
 
 data class PokemonType(
     val name: String? = null
