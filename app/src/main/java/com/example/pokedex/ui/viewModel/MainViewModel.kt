@@ -19,15 +19,7 @@ class MainViewModel @Inject constructor(
 
     var pokemons = MutableLiveData<List<Pokemon?>>()
 
-    fun init() {
-
-
-            loadPokemons()
-
-
-    }
-
-    private fun loadPokemons() {
+    fun loadPokemons() {
 
         viewModelScope.launch(dispatcher) {
             val pokemonsApiResult = pokemonDataSouce.listPokemons(dispatcher,150)
@@ -35,7 +27,8 @@ class MainViewModel @Inject constructor(
             pokemonsApiResult?.results?.let {
 
                 pokemons.postValue(it.map { pokemonResult ->
-                    val number = pokemonResult.url.replace("https://pokeapi.co/api/v2/pokemon/", "")
+                    val number = pokemonResult.url
+                        .replace("https://pokeapi.co/api/v2/pokemon/", "")
                         .replace("/", "").trim().toInt()
 
                     val pokemoResult = pokemonDataSouce.getPokemons(dispatcher,number)
@@ -50,8 +43,7 @@ class MainViewModel @Inject constructor(
                             }
                         )
                     }
-                }
-                )
+                })
             }
         }
     }

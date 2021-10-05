@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel.init()
+        viewModel.loadPokemons()
         viewModel.pokemons.observe(this, Observer {
             when {
                 it.isEmpty() -> {
@@ -39,8 +39,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             loadReclycleView(it)
-        }
-        )
+        })
     }
 
     private fun loadReclycleView(pokemons: List<Pokemon?>) {
