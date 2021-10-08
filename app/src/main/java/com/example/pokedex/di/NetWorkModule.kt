@@ -29,7 +29,6 @@ class NetWorkModule {
                 .newBuilder()
                 .url(newUrl)
                 .build()
-
             chain.proceed(newRequest)
         }
     }
@@ -63,6 +62,4 @@ class NetWorkModule {
     fun pokemonService(retrofit: Retrofit):PokemonService{
         return retrofit.create(PokemonService::class.java)
     }
-
-
 }

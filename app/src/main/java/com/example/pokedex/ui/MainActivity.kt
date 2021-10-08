@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.pokedex.R
 import com.example.pokedex.ui.adapter.PokemonListAdapter
 import com.example.pokedex.domain.Pokemon
@@ -15,6 +16,7 @@ import com.example.pokedex.domain.Pokemon
 import com.example.pokedex.ui.viewModel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_splash.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -27,15 +29,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Glide.with(this).asGif().load(R.drawable.picachu).into(pokemon_load)
         viewModel.loadPokemons()
         viewModel.pokemons.observe(this, Observer {
             when {
                 it.isEmpty() -> {
-                    main_progress_bar.visibility = View.VISIBLE
+                    pokemon_load.visibility = View.VISIBLE
                 }
 
                 it.isNotEmpty() -> {
-                    main_progress_bar.visibility = View.GONE
+                    pokemon_load.visibility = View.GONE
                 }
             }
             loadReclycleView(it)
