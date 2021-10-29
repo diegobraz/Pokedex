@@ -1,5 +1,6 @@
 package com.example.pokedex.di
 
+import com.example.pokedex.BuildConfig
 import com.example.pokedex.api.PokemonService
 import dagger.Module
 import dagger.Provides
@@ -40,8 +41,8 @@ class NetWorkModule {
         interceptor.level = HttpLoggingInterceptor.Level.BODY
 
         return OkHttpClient.Builder()
-            .readTimeout(15, TimeUnit.SECONDS)
-            .connectTimeout(15, TimeUnit.SECONDS)
+            .readTimeout(BuildConfig.NETWORK_TIMEOUT, TimeUnit.SECONDS)
+            .connectTimeout(BuildConfig.NETWORK_TIMEOUT, TimeUnit.SECONDS)
             .addNetworkInterceptor(interceptor)
             .addNetworkInterceptor(authInterceptor)
             .build()
@@ -51,7 +52,7 @@ class NetWorkModule {
     @Provides
     fun providesRetrofitInteance(logginClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://pokeapi.co/api/v2/")
+            .baseUrl(BuildConfig.BASE_URL)
             .client(logginClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

@@ -5,55 +5,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_pokemon_list"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp"
+    app:cardCornerRadius="10dp"
+    android:layout_marginStart="4dp"
+    android:layout_marginTop="4dp"
     android:layout_marginEnd="8dp"
-    android:layout_marginBottom="8dp">
+    android:layout_marginBottom="4dp"
+    tools:backgroundTint="@color/grass"
+
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:id="@+id/pokemon_detail"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         >
 
-        <ImageView
-            android:id="@+id/image_pokemon"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars"/>
-
-        <TextView
-            android:id="@+id/cod_pokemon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_marginTop="12dp"
-            android:textColor="#919191"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_pokemon"
-            tools:text="Nº 001"
-            android:gravity="center_horizontal" />
-
         <TextView
             android:id="@+id/name_pokemon"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:textColor="#313131"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
             android:textSize="25sp"
             android:textAlignment="center"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cod_pokemon"
             tools:text="Charmander"
             android:gravity="center_horizontal" />
 
@@ -61,32 +44,56 @@
             android:id="@+id/type_name"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:background="#fd7d24"
-            android:layout_marginStart="90dp"
-            android:layout_marginLeft="100dp"
+            android:background="@drawable/text_view_shape"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="2dp"
             android:layout_marginTop="12dp"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:textAlignment="center"
-            android:textColor="#313131"
+            android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name_pokemon"
             tools:text="Fire" />
+
         <TextView
             android:id="@+id/type_second_name"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:background="#fd7d24"
+            android:background="@drawable/text_view_shape"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="128dp"
             android:layout_marginTop="12dp"
-            android:gravity="center_horizontal"
+            android:layout_marginEnd="2dp"
+            android:gravity="center"
             android:textAlignment="center"
-            android:textColor="#313131"
+            android:textColor="@color/white"
             android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/type_name"
+            tools:text="Fly" />
+
+
+        <ImageView
+            android:id="@+id/image_pokemon"
+            android:layout_width="80dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="12dp"
             app:layout_constraintStart_toEndOf="@id/type_name"
             app:layout_constraintTop_toBottomOf="@id/name_pokemon"
-            tools:text="Fly" />
+            tools:src="@tools:sample/avatars"/>
+
+<!--        <TextView-->
+<!--            android:id="@+id/cod_pokemon"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textAlignment="center"-->
+<!--            android:layout_marginTop="12dp"-->
+<!--            android:textColor="#919191"-->
+<!--            android:textSize="18sp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            tools:text="Nº 001"-->
+<!--            android:gravity="center_horizontal" />-->
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,9 +48,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadReclycleView(pokemons: List<Pokemon?>) {
         val recyclerView = findViewById<RecyclerView>(R.id.poke_list)
-        recyclerView.post {
-            recyclerView.layoutManager = LinearLayoutManager(this)
+            recyclerView.layoutManager = GridLayoutManager(this,2)
             recyclerView.adapter = PokemonListAdapter(pokemons)
-        }
     }
 }
