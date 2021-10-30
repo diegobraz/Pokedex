@@ -1,6 +1,5 @@
 package com.example.pokedex.ui.adapter
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,24 +11,26 @@ import com.example.pokedex.domain.Pokemon
 import kotlinx.android.synthetic.main.pokemon_detail.view.*
 
 class PokemonListAdapter(
-    private val items: List<Pokemon?>
+    private val items: List<Pokemon?>,
+    private val clickDetail: (pokemon: Pokemon) -> Unit
 ) : RecyclerView.Adapter<PokemonListAdapter.Viewholder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.pokemon_detail, parent, false)
-        return Viewholder(view)
+        return Viewholder(view,clickDetail)
     }
 
     override fun onBindViewHolder(holder: Viewholder, position: Int) {
         items[position]?.let { holder.bind(it) }
+
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
 
-    class Viewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class Viewholder(itemView: View, val clickDetail: (pokemon: Pokemon) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(pokemon: Pokemon) {
 //            itemView.cod_pokemon.text = "Nº ${pokemon.number}"
@@ -196,6 +197,13 @@ class PokemonListAdapter(
             }
 
             Glide.with(itemView.context).load(pokemon.url).into(itemView.image_pokemon)
+            onClickListener(pokemon)
+        }
+
+        private fun onClickListener(pokemon: Pokemon) {
+          itemView.pokemon_detail.setOnClickListener{
+              clickDetail(pokemon)
+          }
         }
     }
 }

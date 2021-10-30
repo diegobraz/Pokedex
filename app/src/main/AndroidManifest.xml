@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pokedex">
         <activity
+            android:name=".ui.PokemonDetail"
+            android:exported="false" />
+        <activity
             android:name=".ui.SplashActivity"
             android:theme="@style/Theme.Splash">
             <intent-filter>
@@ -20,11 +23,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".ui.MainActivity">
-
-        </activity>
+        <activity android:name=".ui.MainActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.pokedex.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -48,7 +49,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadReclycleView(pokemons: List<Pokemon?>) {
         val recyclerView = findViewById<RecyclerView>(R.id.poke_list)
-            recyclerView.layoutManager = GridLayoutManager(this,2)
-            recyclerView.adapter = PokemonListAdapter(pokemons)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        recyclerView.adapter =
+            PokemonListAdapter(pokemons, clickDetail = { OnCreatePokemonDetail(it) })
+    }
+
+    private fun OnCreatePokemonDetail(pokemon: Pokemon) {
+        startActivity(
+            Intent(
+                this,
+                PokemonDetail::class.java
+            ).apply {
+                putExtra("pokemon", pokemon)
+            }
+        )
     }
 }
