@@ -82,19 +82,5 @@
             app:layout_constraintTop_toBottomOf="@id/name_pokemon"
             tools:src="@tools:sample/avatars"/>
 
-<!--        <TextView-->
-<!--            android:id="@+id/cod_pokemon"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textAlignment="center"-->
-<!--            android:layout_marginTop="12dp"-->
-<!--            android:textColor="#919191"-->
-<!--            android:textSize="18sp"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            tools:text="Nº 001"-->
-<!--            android:gravity="center_horizontal" />-->
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

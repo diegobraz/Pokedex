@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,6 +11,7 @@
         android:id="@+id/pokemon_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardCornerRadius="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,7 +24,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
             android:text="@string/app_name"
-            android:textSize="35sp" />
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            tools:textColor="@color/black" />
 
         <TextView
             android:id="@+id/pokemon_number"
@@ -31,115 +36,123 @@
             android:layout_gravity="right"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
-            android:text="0000"
-            android:textSize="30sp" />
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            tools:text="0000"
+            tools:textColor="@color/black" />
 
         <ImageView
-            android:id="@+id/pokemon_teste"
+            android:id="@+id/pokemon_image"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="100dp"
+            android:contentDescription="@string/pokemon_image"
             tools:src="@tools:sample/backgrounds/scenic" />
 
     </androidx.cardview.widget.CardView>
 
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:id="@+id/exp"
-       android:text="Exp:"
-       android:textSize="22sp"
-       android:layout_marginTop="10dp"
-       android:layout_marginStart="16dp"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@id/pokemon_card" />
-
     <TextView
+        android:id="@+id/exp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/exp_value"
-        android:textSize="22sp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
+        android:text="@string/exp"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pokemon_card" />
+
+    <TextView
+        android:id="@+id/exp_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:textSize="26sp"
         app:layout_constraintStart_toEndOf="@id/exp"
         app:layout_constraintTop_toBottomOf="@id/pokemon_card"
-        tools:text="75"/>
+        tools:text="75" />
 
     <TextView
+        android:id="@+id/weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/weight"
-        android:text="weight:"
-        android:textSize="22sp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="16dp"
+        android:text="@string/weight"
+        android:textSize="26sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/exp_value"
         app:layout_constraintTop_toBottomOf="@id/pokemon_card" />
 
     <TextView
+        android:id="@+id/weight_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/weight_value"
-        android:textSize="22sp"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:textSize="26sp"
         app:layout_constraintStart_toEndOf="@id/weight"
         app:layout_constraintTop_toBottomOf="@id/pokemon_card"
-        tools:text="75"/>
+        tools:text="75" />
 
     <TextView
+        android:id="@+id/height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/height"
-        android:text="height:"
-        android:textSize="22sp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="16dp"
+        android:text="@string/height"
+        android:textSize="26sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/weight_value"
         app:layout_constraintTop_toBottomOf="@id/pokemon_card" />
 
     <TextView
+        android:id="@+id/height_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/height_value"
-        android:textSize="22sp"
+        android:layout_marginStart="6dp"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="8dp"
+        android:textSize="26sp"
         app:layout_constraintStart_toEndOf="@id/height"
         app:layout_constraintTop_toBottomOf="@id/pokemon_card"
-        tools:text="75"/>
+        tools:text="75" />
 
     <TextView
         android:id="@+id/txt_ability"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ability"
-        app:layout_constraintTop_toBottomOf="@id/exp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="8dp"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="@string/ability"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/exp" />
+
     <TextView
         android:id="@+id/ability_description_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
-        tools:text="Guardion"
-        app:layout_constraintTop_toBottomOf="@id/txt_ability"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:textSize="26sp"
+        app:layout_constraintTop_toBottomOf="@id/exp"
+        app:layout_constraintStart_toEndOf="@id/txt_ability"
+        tools:text="Guardia" />
 
     <TextView
         android:id="@+id/ability_description_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
-        tools:text="Guardion"
-        app:layout_constraintTop_toBottomOf="@id/txt_ability"
+        android:textSize="26sp"
+        tools:text="Gardian"
+        app:layout_constraintTop_toBottomOf="@id/exp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="20dp"
         app:layout_constraintStart_toEndOf="@id/ability_description_1"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
