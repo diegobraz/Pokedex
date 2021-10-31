@@ -24,7 +24,7 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch(dispatcher) {
             val pokemonsApiResult = pokemonDataSouce.listPokemons(dispatcher,150)
 
-            pokemonsApiResult?.results?.let {
+            pokemonsApiResult?.results?.let { it ->
 
                 pokemons.postValue(it.map { pokemonResult ->
                     val number = pokemonResult.url
@@ -38,8 +38,15 @@ class MainViewModel @Inject constructor(
                         Pokemon(
                             pokemoResult.id,
                             pokemoResult.name,
+                            pokemoResult.base_experience,
+                            pokemoResult.height,
+                            pokemoResult.weight,
                             pokemoResult.types.map {
                                 it.type
+                            },
+
+                            pokemoResult.abilities.map {
+                                it.ability
                             }
                         )
                     }
