@@ -13,39 +13,34 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val  pokemonDataSouce: PokemonDataSouce,
+    private val pokemonDataSource: PokemonDataSouce,
     @IoDispatcher val dispatcher: CoroutineDispatcher
 ) : ViewModel() {
-
     var pokemons = MutableLiveData<List<Pokemon?>>()
 
     fun loadPokemons() {
-
         viewModelScope.launch(dispatcher) {
-            val pokemonsApiResult = pokemonDataSouce.listPokemons(dispatcher,150)
+            val pokemonsApiResult = pokemonDataSource.listPokemons(dispatcher, 150)
 
             pokemonsApiResult?.results?.let { it ->
-
                 pokemons.postValue(it.map { pokemonResult ->
                     val number = pokemonResult.url
                         .replace("https://pokeapi.co/api/v2/pokemon/", "")
                         .replace("/", "").trim().toInt()
 
-                    val pokemoResult = pokemonDataSouce.getPokemons(dispatcher,number)
+                    val pokemomResult = pokemonDataSource.getPokemons(dispatcher, number)
 
-                    pokemoResult?.let {
-
+                    pokemomResult?.let {
                         Pokemon(
-                            pokemoResult.id,
-                            pokemoResult.name,
-                            pokemoResult.base_experience,
-                            pokemoResult.height,
-                            pokemoResult.weight,
-                            pokemoResult.types.map {
+                            pokemomResult.id,
+                            pokemomResult.name,
+                            pokemomResult.base_experience,
+                            pokemomResult.height,
+                            pokemomResult.weight,
+                            pokemomResult.types.map {
                                 it.type
                             },
-
-                            pokemoResult.abilities.map {
+                            pokemomResult.abilities.map {
                                 it.ability
                             }
                         )
