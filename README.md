@@ -6,7 +6,17 @@
     <li>Kotlin</li>
     <li>MVVM architecture</li>
     <li>Hilt for dependency injection.</li>
-		<li>Retrofit</li>
-		<li>Coroutines</li>
-		<li>Glide</li>
+    <li>Retrofit</li>
+    <li>Coroutines</li>
+    <li>Glide</li>!
 </ul>
+<h2>Screenshots</h2>
+
+<div class="row">
+  <div class="coluna">
+	<img src = "https://user-images.githubusercontent.com/26634116/144685213-26145fce-99e0-4fb4-90a0-2cd9abd33050.png" width = "300px"/>
+  </div>
+  <div class="coluna">
+    <img src = "https://user-images.githubusercontent.com/26634116/144685215-58465c31-d602-4586-b6b9-8cdf188a618b.png" width = "300px"/>
+  </div>
+ </div>
