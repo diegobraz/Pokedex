@@ -8,7 +8,7 @@
     <li>Hilt for dependency injection.</li>
     <li>Retrofit</li>
     <li>Coroutines</li>
-    <li>Glide</li>!
+    <li>Glide</li>
 </ul>
 <h2>Screenshots</h2>
 
